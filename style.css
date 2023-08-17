@@ -46,9 +46,9 @@ body * {
 }
 
 #container {
-    width: 360px;
-    margin: auto; /*para ficar alinhado ao meio */
-    margin-top: 56px; /*para não ficar grudado no topo */
+    width: 100%;
+    max-width: 588px; /*para ficar alinhado ao meio */
+    margin-top: 56px auto 0px; /*para não ficar grudado no topo */
     padding: 0 24px;
 
 }
