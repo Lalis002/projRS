@@ -10,7 +10,7 @@
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-houver: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(255, 255, 255, 0.2);
-    --switch-bg-url: url(./assets/moon-stars.svg)
+    --switch-bg-url: url(./assets/moon-stars.svg);
 
     
 }
@@ -22,7 +22,7 @@
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-houver: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(255, 255, 255, 0.1);
-    --switch-bg-url: url(./assets/sun.svg)
+    --switch-bg-url: url(./assets/sun.svg);
 
 }
 
@@ -37,8 +37,8 @@ body {
 
  /*fazer o backg mais simplificado. A oredem é: color imag repeat position/size*/
 
- background: var(--bg-url) no-repeat top center/cover;
- height: 100vh;
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 
 body * {
@@ -48,7 +48,7 @@ body * {
 
 #container {
     width: 100%;
-    max-width: 588px; /*para ficar alinhado ao meio */
+    max-width: 588px; 
     margin-top: 56px auto 0px; /*para não ficar grudado no topo */
     padding: 0 24px;
 
@@ -79,7 +79,7 @@ body * {
 
 }
 
-#switch button{
+#switch button {
     width: 32px; 
     height: 32px;
     background: white var(--switch-bg-url) no-repeat center;
@@ -91,12 +91,15 @@ body * {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: slide-back 0.2s;
 }
 
 .light #switch button{
-    right: 0;
-    left: initial;
+    animation: slide-in 0.4s forwards;
+}
 
+#switch button:hover{
+    outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -172,6 +175,7 @@ footer{
 }
 
 /* media queries*/
+
 @media(min-width: 700px){
     :root {
         --bg-url: url(./assets/bg-desktop.jpg);
@@ -180,4 +184,24 @@ footer{
     .light{
         --bg-url: url(./assets/bg-desktop-light.jpg);
     }
+}
+
+/* animações */
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+    
 }
